@@ -1,27 +1,67 @@
-<section class="mt-16 text-center sm:text-left">
-    <p class="text-slate-400 text-sm font-medium mb-6 tracking-wide">
-        请选择你想要的联系方式：
-    </p>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG ASUKA 联络站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 弹窗动画 */
+        #wechat-modal { transition: opacity 0.3s ease; }
+        .modal-content { transform: scale(0.9); transition: transform 0.3s ease; }
+        #wechat-modal.flex { display: flex; }
+        #wechat-modal.active .modal-content { transform: scale(1); }
+    </style>
+</head>
+<body class="bg-slate-950 text-white font-sans flex items-center justify-center min-h-screen">
 
-    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
-        <a 
-            href="https://wa.me/601120830798" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 px-6 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-900/20"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            WhatsApp
-        </a>
+    <div class="max-w-md w-full px-6 py-12 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl text-center">
+        <h1 class="text-4xl font-black mb-2 tracking-tight">PUBG <span class="text-cyan-400">ASUKA</span></h1>
+        <p class="text-slate-400 mb-10 text-sm italic">请选择你想要的联系方式：</p>
+        
+        <div class="flex flex-col gap-5">
+            <a href="https://wa.me/601120830798" target="_blank" rel="noopener noreferrer" 
+               class="flex items-center justify-center gap-3 px-8 py-4 bg-green-600 hover:bg-green-500 rounded-2xl font-bold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-900/40">
+               <span>WhatsApp</span>
+            </a>
 
-        <a 
-            href="https://discord.gg/Sagn9YSXSB" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-indigo-900/20"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
-            Discord
-        </a>
+            <a href="https://discord.gg/Sagn9YSXSB" target="_blank" rel="noopener noreferrer" 
+               class="flex items-center justify-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-bold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-indigo-900/40">
+               <span>Discord</span>
+            </a>
+
+            <button onclick="toggleModal()" 
+               class="flex items-center justify-center gap-3 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 rounded-2xl font-bold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-900/40 text-white">
+               <span>WeChat (微信群)</span>
+            </button>
+        </div>
+
+        <p class="mt-10 text-slate-600 text-xs">© 2026 Powered by Vercel</p>
     </div>
-</section>
+
+    <div id="wechat-modal" onclick="toggleModal()" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-6 cursor-pointer">
+        <div class="modal-content bg-white p-4 rounded-3xl max-w-xs w-full shadow-2xl" onclick="event.stopPropagation()">
+            <img src="wechat-qr.png" alt="WeChat QR" class="w-full rounded-2xl">
+            <p class="text-slate-900 font-bold mt-4 text-center">长按识别或扫码进群</p>
+            <button onclick="toggleModal()" class="mt-4 w-full py-2 text-slate-400 text-sm hover:text-slate-600">点击空白处关闭</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('wechat-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => modal.classList.add('active'), 10);
+            } else {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.classList.remove('flex');
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>
