@@ -256,14 +256,14 @@ export default function Home() {
           <div className="banner">
             <div className="sub">SMK Dato Syed Esa</div>
             <h1>投稿墙</h1>
-            <div className="desc">写下想说的话，贴上这面墙 — 可以匿名，也可以留下你的名字。</div>
+            <div className="desc">作者：asuka 管理员：johang。</div>
           </div>
         </div>
 
         <div className="stats-row">
           <span>{loading ? '加载中…' : `目前 ${posts.length} 张便条`}</span>
           <span className="dot" />
-          <span>大家都能看到这面墙</span>
+          <span>公益网站</span>
         </div>
 
         <div className="sort-row">
