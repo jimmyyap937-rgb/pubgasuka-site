@@ -399,7 +399,7 @@ export default function Home() {
       <div className="board">
         <div className="banner-wrap">
           <div className="banner">
-            <div className="sub">SMK Dato Syed Esa</div>
+            <div className="sub">中学</div>
             <h1>投稿墙</h1>
             <div className="desc">写下想说的话，贴上这面墙 — 可以匿名，也可以留下你的名字。</div>
           </div>
